@@ -1,0 +1,28 @@
+:host {
+  display:flex;
+  flex-direction: column;
+  flex-grow:1;
+}
+
+.results {
+  display:flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: start;
+  align-items: center;
+
+  .fill-center {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+  }
+}
+
+pagination-controls::ng-deep {
+  font-size:.8em;
+
+  ul {
+    padding:0;
+  }
+}

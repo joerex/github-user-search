@@ -1,0 +1,16 @@
+<div class="list-item">
+  <div class="summary" (click)="detailVisible = !detailVisible">
+    <div class="avatar">
+      <img [src]="user.avatar_url" />
+    </div>
+    <div class="info">
+      <div class="title">{{user.login}}</div>
+    </div>
+  </div>
+
+  <app-user-detail *ngIf="detailVisible" [id]="user.login"></app-user-detail>
+
+  <button class="load-details" (click)="detailVisible = !detailVisible">
+    {{detailVisible ? 'Hide' : 'View'}} Details
+  </button>
+</div>

@@ -1,0 +1,60 @@
+@import "../../mixins";
+
+:host {
+  display:flex;
+  flex-direction: column;
+  margin:10px auto;
+  width: 300px;
+  @include fade-in-content;
+}
+
+.list-item {
+  border: 1px solid rgba(0,0,0,.2);
+  background: white;
+}
+
+.summary {
+  display:flex;
+  flex-direction: row;
+  height:100px;
+  cursor: pointer;
+
+  .avatar {
+    width:40%;
+
+    img {
+      display: block;
+      width:auto;
+      height:100%;
+    }
+  }
+
+  .info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:15px;
+
+    .title {
+      font-size:1.2em;
+      margin-bottom:10px;
+    }
+  }
+}
+
+app-user-detail {
+  border-top:1px solid rgba(0,0,0,.2);
+}
+
+button.load-details {
+  display: block;
+  width:100%;
+  border:none;
+  background:rgba(0,0,0,.5);
+  padding:10px;
+  color:white;
+  box-shadow:5px 5px 10px rgba(0,0,0,.2);
+  border-radius:0;
+  outline:none;
+  cursor: pointer;
+}

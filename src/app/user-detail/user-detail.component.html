@@ -1,0 +1,12 @@
+<app-loading-indicator *ngIf="pending"></app-loading-indicator>
+<ng-container *ngIf="detail">
+  <div *ngIf="detail.name" class="detail name">{{detail.name}}</div>
+  <div *ngIf="detail.bio" class="detail bio">{{detail.bio}}</div>
+  <div *ngIf="detail.location" class="detail bio">{{detail.location}}</div>
+  <div *ngIf="detail.company" class="detail bio">{{detail.company}}</div>
+  <div *ngIf="detail.email" class="detail bio">{{detail.email}}</div>
+  <div *ngIf="detail.followers" class="detail followers">{{detail.followers}} Followers</div>
+  <div *ngIf="detail.following" class="detail following">{{detail.following}} Following</div>
+  <div class="detail"><a [href]="detail.html_url" target="_blank">Profile</a></div>
+</ng-container>
+<app-error *ngIf="error" [message]="error"></app-error>

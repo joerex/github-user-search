@@ -1,0 +1,20 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  padding:15px;
+}
+
+.detail {
+  display:block;
+  margin:4px;
+  font-size:.8em;
+  overflow: hidden;
+
+  &.name {
+    font-weight: bold;
+  }
+
+  &.bio {
+    font-size:.7em;
+  }
+}

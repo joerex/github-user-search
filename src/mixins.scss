@@ -1,0 +1,26 @@
+@mixin fade-in-content {
+  @keyframes fade-content {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  & > * {
+    animation: 500ms fade-content forwards;
+    opacity: 0;
+
+    /* assumes number of items to be
+       animated is no more than 100
+    */
+    @for $i from 2 through 100 {
+      &:nth-child(#{$i}) {
+        animation-delay: $i * 50ms;
+      }
+    }
+  }
+}

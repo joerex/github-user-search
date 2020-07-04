@@ -1,0 +1,33 @@
+<app-search-input (onChange)="search($event, 1)"></app-search-input>
+
+<div class="results" *ngIf="!error">
+  <h4 *ngIf="searchResult && searchResult.total_count">{{searchResult.total_count}} user{{searchResult.total_count > 1 ? 's' : ''}}</h4>
+
+  <div class="fill-center" *ngIf="searchResult && !searchResult.total_count">
+    <h4>No Results Found</h4>
+  </div>
+
+  <pagination-controls
+    *ngIf="searchResult && searchResult.total_count > pageSize"
+    (pageChange)="search(searchTerm, $event)"
+    maxSize="5">
+  </pagination-controls>
+
+  <div *ngIf="pending" class="fill-center">
+    <app-loading-indicator></app-loading-indicator>
+  </div>
+
+  <ng-container *ngIf="!pending && !error && searchResult">
+    <ng-container *ngFor="let user of searchResult.items">
+      <app-user-list-item [user]="user"></app-user-list-item>
+    </ng-container>
+  </ng-container>
+
+  <pagination-controls
+    *ngIf="!pending && searchResult && searchResult.total_count > pageSize"
+    (pageChange)="search(searchTerm, $event)"
+    maxSize="5">
+  </pagination-controls>
+</div>
+
+<app-error *ngIf="error" [message]="error"></app-error>
